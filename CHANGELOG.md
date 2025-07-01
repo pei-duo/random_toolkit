@@ -5,6 +5,19 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
 并且本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.0.2] - 2024-12-19
+
+### 修复
+- 🔧 **Android 构建问题**
+  - 修复了 Android 模块缺少 `namespace` 配置导致的构建失败问题
+  - 在 `android/build.gradle` 中添加了 `namespace 'com.example.random_toolkit'` 配置
+  - 解决了外部项目引用插件时出现的 "Namespace not specified" 错误
+
+### 改进
+- 📦 **发布准备**
+  - 完善了项目配置以符合 pub.dev 发布要求
+  - 优化了 Android Gradle Plugin 兼容性
+
 ## [0.0.1] - 2024-12-19
 
 ### 新增功能

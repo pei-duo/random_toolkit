@@ -1,6 +1,6 @@
 name: random_toolkit
 description: 一个功能强大的Flutter随机数据生成工具包，提供各种类型的随机数据生成功能。
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/pei-duo/random_toolkit
 repository: https://github.com/pei-duo/random_toolkit.git
 issue_tracker: https://github.com/pei-duo/random_toolkit/issues
