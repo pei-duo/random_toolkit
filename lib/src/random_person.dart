@@ -2,7 +2,7 @@ import 'random_generators.dart';
 
 /// 随机个人信息生成器
 class RandomPerson {
-  static const List<String> _chineseFirstNames = [
+   final List<String> _chineseFirstNames = [
     '张伟',
     '王芳',
     '李娜',
@@ -25,7 +25,7 @@ class RandomPerson {
     '唐丽',
   ];
 
-  static const List<String> _englishFirstNames = [
+   final List<String> _englishFirstNames = [
     'James',
     'Mary',
     'John',
@@ -44,7 +44,7 @@ class RandomPerson {
     'Jessica'
   ];
 
-  static const List<String> _englishLastNames = [
+   final List<String> _englishLastNames = [
     'Smith',
     'Johnson',
     'Williams',
@@ -56,18 +56,18 @@ class RandomPerson {
   ];
 
   /// 生成随机姓名
-  static String randomName({bool chinese = true}) {
+   String randomName({bool chinese = true}) {
     if (chinese) {
-      return RandomGenerators.randomChoice(_chineseFirstNames);
+      return RandomGenerators().randomChoice(_chineseFirstNames);
     } else {
-      final firstName = RandomGenerators.randomChoice(_englishFirstNames);
-      final lastName = RandomGenerators.randomChoice(_englishLastNames);
+      final firstName = RandomGenerators().randomChoice(_englishFirstNames);
+      final lastName = RandomGenerators().randomChoice(_englishLastNames);
       return '$firstName $lastName';
     }
   }
 
   /// 生成随机邮箱地址
-  static String randomEmail() {
+   String randomEmail() {
     final domains = [
       'gmail.com',
       'yahoo.com',
@@ -76,16 +76,16 @@ class RandomPerson {
       'qq.com',
       'sina.com'
     ];
-    final username = RandomGenerators.randomString(
-            RandomGenerators.randomInt(5, 12),
+    final username = RandomGenerators().randomString(
+            RandomGenerators().randomInt(5, 12),
             includeNumbers: true)
         .toLowerCase();
-    final domain = RandomGenerators.randomChoice(domains);
+    final domain = RandomGenerators().randomChoice(domains);
     return '$username@$domain';
   }
 
   /// 生成随机手机号码
-  static String randomPhoneNumber({String countryCode = 'CN'}) {
+   String randomPhoneNumber({String countryCode = 'CN'}) {
     if (countryCode == 'CN') {
       final prefixes = [
         '130',
@@ -118,15 +118,15 @@ class RandomPerson {
         '188',
         '189'
       ];
-      final prefix = RandomGenerators.randomChoice(prefixes);
+      final prefix = RandomGenerators().randomChoice(prefixes);
       final suffix =
-          List.generate(8, (_) => RandomGenerators.randomInt(0, 9)).join();
+          List.generate(8, (_) => RandomGenerators().randomInt(0, 9)).join();
       return '$prefix$suffix';
     } else {
       // 美国格式
-      final areaCode = RandomGenerators.randomInt(200, 999);
-      final exchange = RandomGenerators.randomInt(200, 999);
-      final number = RandomGenerators.randomInt(1000, 9999);
+      final areaCode = RandomGenerators().randomInt(200, 999);
+      final exchange = RandomGenerators().randomInt(200, 999);
+      final number = RandomGenerators().randomInt(1000, 9999);
       return '($areaCode) $exchange-$number';
     }
   }

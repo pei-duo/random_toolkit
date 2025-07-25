@@ -16,7 +16,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   String _platformVersion = 'Unknown';
-  final _randomToolkitPlugin = RandomToolkit();
 
   // 随机数据展示
   String _randomData = '';
@@ -41,7 +40,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   Future<void> initPlatformState() async {
     String platformVersion;
     try {
-      platformVersion = await _randomToolkitPlugin.getPlatformVersion() ??
+      platformVersion = await RandomToolkit.getPlatformVersion() ??
           'Unknown platform version';
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
@@ -57,83 +56,88 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   void _generateRandomData(String type) {
     setState(() {
       switch (type) {
-        // 基础随机数据
+        // 基础随机数据 - 新旧API共存
         case 'int':
-          _randomData = '随机整数: ${RandomGenerators.randomInt(1, 100)}';
+          _randomData = '随机整数: ${RandomToolkit.generators.randomInt(1, 100)}';
           break;
         case 'double':
           _randomData =
-              '随机浮点数: ${RandomGenerators.randomDouble(0.0, 100.0).toStringAsFixed(2)}';
+              '随机浮点数: ${RandomToolkit.generators.randomDouble(0.0, 100.0).toStringAsFixed(2)}';
           break;
         case 'bool':
-          _randomData = '随机布尔值: ${RandomGenerators.randomBool()}';
+          _randomData = '随机布尔值: ${RandomToolkit.generators.randomBool()}';
           break;
         case 'string':
-          _randomData = '随机字符串: ${RandomGenerators.randomString(10)}';
+          _randomData = '随机字符串: ${RandomToolkit.generators.randomString(10)}';
           break;
         case 'string_symbols':
           _randomData =
-              '带符号字符串: ${RandomGenerators.randomString(8, includeSymbols: true)}';
+              '带符号字符串: ${RandomToolkit.generators.randomString(8, includeSymbols: true)}';
           break;
         case 'uuid':
-          _randomData = '随机UUID: ${RandomGenerators.randomUUID()}';
+          _randomData = '随机UUID: ${RandomToolkit.generators.randomUUID()}';
           break;
 
-        // 个人信息
+        // 个人信息 - 新旧API对比
         case 'name_cn':
-          _randomData = '中文姓名: ${RandomPerson.randomName(chinese: true)}';
+          _randomData =
+              '中文姓名: ${RandomToolkit.person.randomName(chinese: true)}';
           break;
         case 'name_en':
-          _randomData = '英文姓名: ${RandomPerson.randomName(chinese: false)}';
+          _randomData =
+              '英文姓名: ${RandomToolkit.person.randomName(chinese: false)}';
           break;
         case 'email':
-          _randomData = '随机邮箱: ${RandomPerson.randomEmail()}';
+          _randomData = '随机邮箱: ${RandomToolkit.person.randomEmail()}';
           break;
         case 'phone_cn':
           _randomData =
-              '中国手机号: ${RandomPerson.randomPhoneNumber(countryCode: 'CN')}';
+              '中国手机号: ${RandomToolkit.person.randomPhoneNumber(countryCode: 'CN')}';
           break;
         case 'phone_us':
           _randomData =
-              '美国电话: ${RandomPerson.randomPhoneNumber(countryCode: 'US')}';
+              '美国电话: ${RandomToolkit.person.randomPhoneNumber(countryCode: 'US')}';
           break;
 
-        // 视觉元素
+        // 视觉元素 - 新API优先
         case 'color':
-          _randomColor = RandomVisual.randomColor();
-          _randomData = '随机颜色: ${RandomVisual.randomHexColor()}';
+          _randomColor = RandomToolkit.visual.randomColor();
+          _randomData = '随机颜色: ${RandomToolkit.visual.randomHexColor()}';
           break;
         case 'material_color':
-          _randomColor = RandomVisual.randomMaterialColor();
+          _randomColor = RandomToolkit.visual.randomMaterialColor();
           _randomData = 'Material颜色: ${_randomColor.toString()}';
           break;
         case 'image_url':
-          _randomData = RandomVisual.randomImageUrl(width: 600, height: 250);
+          _randomData =
+              RandomToolkit.visual.randomImageUrl(width: 600, height: 250);
           break;
         case 'avatar':
-          _randomData = RandomVisual.randomAvatarUrl();
+          _randomData = RandomToolkit.visual.randomAvatarUrl();
           break;
 
-        // 地理位置
+        // 地理位置 - 新API
         case 'address_cn':
-          _randomData = '中文地址: ${RandomLocation.randomAddress(chinese: true)}';
+          _randomData =
+              '中文地址: ${RandomToolkit.location.randomAddress(chinese: true)}';
           break;
         case 'address_en':
-          _randomData = '英文地址: ${RandomLocation.randomAddress(chinese: false)}';
+          _randomData =
+              '英文地址: ${RandomToolkit.location.randomAddress(chinese: false)}';
           break;
 
-        // 日期时间
+        // 日期时间 - 新API
         case 'date':
           _randomData =
-              '随机日期: ${RandomDateTime.randomDate().toString().split(' ')[0]}';
+              '随机日期: ${RandomToolkit.dateTime.randomDate().toString().split(' ')[0]}';
           break;
         case 'timestamp':
-          _randomData = '随机时间戳: ${RandomDateTime.randomTimestamp()}';
+          _randomData = '随机时间戳: ${RandomToolkit.dateTime.randomTimestamp()}';
           break;
 
-        // 完整用户信息
+        // 完整用户信息 - 新API
         case 'user_cn':
-          final user = RandomUser.generate(chinese: true);
+          final user = RandomToolkit.user.generate(chinese: true);
           _randomData = '''完整用户信息(中文):
 ID: ${user['id']}
 姓名: ${user['name']}
@@ -146,7 +150,7 @@ ID: ${user['id']}
 余额: ¥${user['balance']}''';
           break;
         case 'user_en':
-          final user = RandomUser.generate(chinese: false);
+          final user = RandomToolkit.user.generate(chinese: false);
           _randomData = '''Complete User Info (English):
 ID: ${user['id']}
 Name: ${user['name']}

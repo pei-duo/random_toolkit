@@ -19,10 +19,9 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    RandomToolkit randomToolkitPlugin = RandomToolkit();
     MockRandomToolkitPlatform fakePlatform = MockRandomToolkitPlatform();
     RandomToolkitPlatform.instance = fakePlatform;
 
-    expect(await randomToolkitPlugin.getPlatformVersion(), '42');
+    expect(await RandomToolkit.getPlatformVersion(), '42');
   });
 }
