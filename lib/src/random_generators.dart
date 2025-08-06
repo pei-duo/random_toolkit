@@ -3,25 +3,25 @@ import 'dart:typed_data';
 
 /// 基础随机数生成器
 class RandomGenerators {
-   final Random _random = Random();
+  final Random _random = Random();
 
   /// 生成指定范围内的随机整数
-   int randomInt(int min, int max) {
+  int integer(int min, int max) {
     return min + _random.nextInt(max - min + 1);
   }
 
   /// 生成指定范围内的随机浮点数
-   double randomDouble(double min, double max) {
+  double decimal(double min, double max) {
     return min + _random.nextDouble() * (max - min);
   }
 
   /// 生成随机布尔值
-   bool randomBool() {
+  bool boolean() {
     return _random.nextBool();
   }
 
   /// 生成随机字符串
-   String randomString(int length,
+  String string(int length,
       {bool includeNumbers = true, bool includeSymbols = false}) {
     const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numbers = '0123456789';
@@ -36,7 +36,7 @@ class RandomGenerators {
   }
 
   /// 生成随机UUID
-   String randomUUID() {
+  String uuid() {
     final bytes = Uint8List(16);
     for (int i = 0; i < 16; i++) {
       bytes[i] = _random.nextInt(256);
@@ -50,14 +50,13 @@ class RandomGenerators {
   }
 
   /// 从列表中随机选择元素
-   T randomChoice<T>(List<T> list) {
+  T choice<T>(List<T> list) {
     if (list.isEmpty) throw ArgumentError('List cannot be empty');
     return list[_random.nextInt(list.length)];
   }
 
   /// 从列表中随机选择多个元素
-   List<T> randomChoices<T>(List<T> list, int count,
-      {bool allowDuplicates = false}) {
+  List<T> choices<T>(List<T> list, int count, {bool allowDuplicates = false}) {
     if (list.isEmpty) throw ArgumentError('List cannot be empty');
     if (!allowDuplicates && count > list.length) {
       throw ArgumentError(
@@ -80,7 +79,7 @@ class RandomGenerators {
   }
 
   /// 打乱列表顺序
-   List<T> shuffle<T>(List<T> list) {
+  List<T> shuffle<T>(List<T> list) {
     final shuffled = List<T>.from(list);
     shuffled.shuffle(_random);
     return shuffled;

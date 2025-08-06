@@ -5,13 +5,66 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
 并且本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.0.4] - 2025-01-15
+
+### 重大变更 (Breaking Changes)
+
+- 🔄 **API 函数名称简化**
+  - 所有函数名称移除 `random` 前缀，使API更简洁
+  - `randomInt()` → `integer()`
+  - `randomDouble()` → `decimal()`
+  - `randomBool()` → `boolean()`
+  - `randomString()` → `string()`
+  - `randomUUID()` → `uuid()`
+  - `randomChoice()` → `choice()`
+  - `randomChoices()` → `choices()`
+  - `randomColor()` → `color()`
+  - `randomHexColor()` → `hexColor()`
+  - `randomMaterialColor()` → `materialColor()`
+  - `randomImageUrl()` → `imageUrl()`
+  - `randomAvatarUrl()` → `avatarUrl()`
+  - `randomName()` → `name()`
+  - `randomEmail()` → `email()`
+  - `randomPhoneNumber()` → `phoneNumber()`
+  - `randomAddress()` → `address()`
+  - `randomDate()` → `date()`
+  - `randomTimestamp()` → `timestamp()`
+
+### 改进
+
+- 📚 **文档更新**
+  - 更新 README.md 中的所有示例代码
+  - 添加完整的 API 使用示例
+  - 改进代码注释和文档结构
+
+- 🧪 **测试验证**
+  - 验证所有函数名称变更的正确性
+  - 确保示例应用正常运行
+  - 通过完整的功能测试
+
+### 迁移指南
+
+如果您正在使用旧版本，请按以下方式更新您的代码：
+
+```dart
+// 旧版本
+int num = RandomToolkit.generators.randomInt(1, 100);
+String name = RandomToolkit.person.randomName();
+Color color = RandomToolkit.visual.randomColor();
+
+// 新版本
+int num = RandomToolkit.generators.integer(1, 100);
+String name = RandomToolkit.person.name();
+Color color = RandomToolkit.visual.color();
+```
+
 ## [0.0.3] - 2025-01-15
 
 ### 新增
 
 - 🎯 **API 命名空间支持**
-  - 添加`RandomToolkit.visual.randomColor()`等命名空间调用方式
-  - 支持`RandomToolkit.person.randomName()`等统一访问入口
+  - 添加`RandomToolkit.visual.color()`等命名空间调用方式
+  - 支持`RandomToolkit.person.name()`等统一访问入口
   - 保留所有原始类调用方式实现向后兼容
 
 ### 改进

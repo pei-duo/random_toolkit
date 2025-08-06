@@ -2,7 +2,7 @@ import 'random_generators.dart';
 
 /// 随机地理位置生成器
 class RandomLocation {
-   final List<String> _chineseCities = [
+  final List<String> _chineseCities = [
     '北京市',
     '上海市',
     '广州市',
@@ -13,7 +13,7 @@ class RandomLocation {
     '成都市',
   ];
 
-   final List<String> _englishCities = [
+  final List<String> _englishCities = [
     'New York',
     'Los Angeles',
     'Chicago',
@@ -22,7 +22,7 @@ class RandomLocation {
     'Philadelphia'
   ];
 
-   final List<String> _chineseStreets = [
+  final List<String> _chineseStreets = [
     '中山路',
     '人民路',
     '解放路',
@@ -33,7 +33,7 @@ class RandomLocation {
     '红旗路',
   ];
 
-   final List<String> _englishStreets = [
+  final List<String> _englishStreets = [
     'Main St',
     'First St',
     'Second St',
@@ -43,16 +43,16 @@ class RandomLocation {
   ];
 
   /// 生成随机地址
-   String randomAddress({bool chinese = true}) {
+  String address({bool chinese = true}) {
     if (chinese) {
-      final city = RandomGenerators().randomChoice(_chineseCities);
-      final street = RandomGenerators().randomChoice(_chineseStreets);
-      final number = RandomGenerators().randomInt(1, 9999);
+      final city = RandomGenerators().choice(_chineseCities);
+      final street = RandomGenerators().choice(_chineseStreets);
+      final number = RandomGenerators().integer(1, 9999);
       return '$city$street$number号';
     } else {
-      final city = RandomGenerators().randomChoice(_englishCities);
-      final street = RandomGenerators().randomChoice(_englishStreets);
-      final number = RandomGenerators().randomInt(1, 9999);
+      final city = RandomGenerators().choice(_englishCities);
+      final street = RandomGenerators().choice(_englishStreets);
+      final number = RandomGenerators().integer(1, 9999);
       return '$number $street, $city';
     }
   }

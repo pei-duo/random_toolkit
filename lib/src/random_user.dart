@@ -9,19 +9,18 @@ class RandomUser {
   /// 生成完整的随机用户信息
   Map<String, dynamic> generate({bool chinese = true}) {
     return {
-      'id': RandomGenerators().randomUUID(),
-      'name': RandomPerson().randomName(chinese: chinese),
-      'email': RandomPerson().randomEmail(),
-      'phone':
-          RandomPerson().randomPhoneNumber(countryCode: chinese ? 'CN' : 'US'),
-      'address': RandomLocation().randomAddress(chinese: chinese),
-      'avatar': RandomVisual().randomAvatarUrl(),
-      'birthDate':
-          RandomDateTime().randomDate(start: DateTime(1950), end: DateTime(2005))
-              .toIso8601String(),
-      'isActive': RandomGenerators().randomBool(),
-      'score': RandomGenerators().randomInt(0, 100),
-      'balance': RandomGenerators().randomDouble(0, 10000).toStringAsFixed(2),
+      'id': RandomGenerators().uuid(),
+      'name': RandomPerson().name(chinese: chinese),
+      'email': RandomPerson().email(),
+      'phone': RandomPerson().phoneNumber(countryCode: chinese ? 'CN' : 'US'),
+      'address': RandomLocation().address(chinese: chinese),
+      'avatar': RandomVisual().avatarUrl(),
+      'birthDate': RandomDateTime()
+          .date(start: DateTime(1950), end: DateTime(2005))
+          .toIso8601String(),
+      'isActive': RandomGenerators().boolean(),
+      'score': RandomGenerators().integer(0, 100),
+      'balance': RandomGenerators().decimal(0, 10000).toStringAsFixed(2),
     };
   }
 }

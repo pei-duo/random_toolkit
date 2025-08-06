@@ -59,76 +59,85 @@ flutter pub get
 import 'package:random_toolkit/random_toolkit.dart';
 ```
 
-### 生成随机整数
-要生成一个随机整数，您可以使用 `RandomToolkit.generateInteger` 方法：
+### 基础随机数据生成
 
 ```dart
-int randomInt = RandomToolkit.generateInteger();
-```
+// 随机整数
+int randomInt = RandomToolkit.generators.integer(1, 100);
 
-### 生成随机字符串
-要生成一个随机字符串，您可以使用 `RandomToolkit.generateString` 方法：
+// 随机浮点数
+double randomDouble = RandomToolkit.generators.decimal(0.0, 1.0);
 
-```dart
-String randomString = RandomToolkit.generateString();
-```
+// 随机布尔值
+bool randomBool = RandomToolkit.generators.boolean();
 
-### 生成UUID
-要生成一个UUID，您可以使用 `RandomToolkit.generateUUID` 方法：
+// 随机字符串
+String randomString = RandomToolkit.generators.string(length: 10);
 
-```dart
-String uuid = RandomToolkit.generateUUID();
+// UUID生成
+String uuid = RandomToolkit.generators.uuid();
+
+// 数组随机选择
+String choice = RandomToolkit.generators.choice(['A', 'B', 'C']);
 ```
 ### 个人信息生成
 ```dart
-// 随机姓名
-String chineseName = RandomPerson.randomChineseName();
-String englishName = RandomPerson.randomEnglishName();
+// 随机姓名（支持中英文）
+String chineseName = RandomToolkit.person.name(locale: 'zh');
+String englishName = RandomToolkit.person.name(locale: 'en');
 
 // 随机邮箱
-String email = RandomPerson.randomEmail();
+String email = RandomToolkit.person.email();
 
-// 随机手机号
-String phone = RandomPerson.randomPhoneNumber();
+// 随机手机号（支持中美格式）
+String cnPhone = RandomToolkit.person.phoneNumber(format: 'CN');
+String usPhone = RandomToolkit.person.phoneNumber(format: 'US');
 ```
 
 ### 视觉元素
 ```dart
 // 随机颜色
-Color randomColor = RandomVisual.randomColor();
+Color randomColor = RandomToolkit.visual.color();
 
 // 十六进制颜色字符串
-String hexColor = RandomVisual.randomHexColor();
+String hexColor = RandomToolkit.visual.hexColor();
 
 // Material Design颜色
-Color materialColor = RandomVisual.randomMaterialColor();
+Color materialColor = RandomToolkit.visual.materialColor();
 
 // 随机图片URL
-String imageUrl = RandomVisual.randomImageUrl(width: 300, height: 200);
+String imageUrl = RandomToolkit.visual.imageUrl(width: 300, height: 200);
 
 // 随机头像URL
-String avatarUrl = RandomVisual.randomAvatarUrl(size: 100);
+String avatarUrl = RandomToolkit.visual.avatarUrl(size: 100);
 ```
 
 
 ### 地理位置
 ```dart
-// 随机地址
-String chineseAddress = RandomLocation.randomChineseAddress();
-String englishAddress = RandomLocation.randomEnglishAddress();
+// 随机地址（支持中英文）
+String chineseAddress = RandomToolkit.location.address(locale: 'zh');
+String englishAddress = RandomToolkit.location.address(locale: 'en');
 ```
 
 ### 日期时间
 ```dart
 // 随机日期
-DateTime randomDate = RandomDateTime.randomDate(
+DateTime randomDate = RandomToolkit.datetime.date(
   start: DateTime(2020, 1, 1),
   end: DateTime(2024, 12, 31),
 );
 
 // 随机时间戳
-int timestamp = RandomDateTime.randomTimestamp();d: DateTime(2024, 12, 31),
-);
+int timestamp = RandomToolkit.datetime.timestamp();
+```
+
+### 完整用户信息
+```dart
+// 生成随机用户（支持中英文）
+Map<String, dynamic> chineseUser = RandomToolkit.user.generate(locale: 'zh');
+Map<String, dynamic> englishUser = RandomToolkit.user.generate(locale: 'en');
+```
 ```
 ## 示例应用
 查看 example 文件夹中的完整示例应用，了解如何在实际项目中使用所有功能。

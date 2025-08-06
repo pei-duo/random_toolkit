@@ -58,81 +58,78 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
       switch (type) {
         // 基础随机数据 - 新旧API共存
         case 'int':
-          _randomData = '随机整数: ${RandomToolkit.generators.randomInt(1, 100)}';
+          _randomData = '随机整数: ${RandomToolkit.generators.integer(1, 100)}';
           break;
         case 'double':
           _randomData =
-              '随机浮点数: ${RandomToolkit.generators.randomDouble(0.0, 100.0).toStringAsFixed(2)}';
+              '随机浮点数: ${RandomToolkit.generators.decimal(0.0, 100.0).toStringAsFixed(2)}';
           break;
         case 'bool':
-          _randomData = '随机布尔值: ${RandomToolkit.generators.randomBool()}';
+          _randomData = '随机布尔值: ${RandomToolkit.generators.boolean()}';
           break;
         case 'string':
-          _randomData = '随机字符串: ${RandomToolkit.generators.randomString(10)}';
+          _randomData = '随机字符串: ${RandomToolkit.generators.string(10)}';
           break;
         case 'string_symbols':
           _randomData =
-              '带符号字符串: ${RandomToolkit.generators.randomString(8, includeSymbols: true)}';
+              '带符号字符串: ${RandomToolkit.generators.string(8, includeSymbols: true)}';
           break;
         case 'uuid':
-          _randomData = '随机UUID: ${RandomToolkit.generators.randomUUID()}';
+          _randomData = '随机UUID: ${RandomToolkit.generators.uuid()}';
           break;
 
         // 个人信息 - 新旧API对比
         case 'name_cn':
-          _randomData =
-              '中文姓名: ${RandomToolkit.person.randomName(chinese: true)}';
+          _randomData = '中文姓名: ${RandomToolkit.person.name(chinese: true)}';
           break;
         case 'name_en':
-          _randomData =
-              '英文姓名: ${RandomToolkit.person.randomName(chinese: false)}';
+          _randomData = '英文姓名: ${RandomToolkit.person.name(chinese: false)}';
           break;
         case 'email':
-          _randomData = '随机邮箱: ${RandomToolkit.person.randomEmail()}';
+          _randomData = '随机邮箱: ${RandomToolkit.person.email()}';
           break;
         case 'phone_cn':
           _randomData =
-              '中国手机号: ${RandomToolkit.person.randomPhoneNumber(countryCode: 'CN')}';
+              '中国手机号: ${RandomToolkit.person.phoneNumber(countryCode: 'CN')}';
           break;
         case 'phone_us':
           _randomData =
-              '美国电话: ${RandomToolkit.person.randomPhoneNumber(countryCode: 'US')}';
+              '美国电话: ${RandomToolkit.person.phoneNumber(countryCode: 'US')}';
           break;
 
         // 视觉元素 - 新API优先
         case 'color':
-          _randomColor = RandomToolkit.visual.randomColor();
-          _randomData = '随机颜色: ${RandomToolkit.visual.randomHexColor()}';
+          _randomColor = RandomToolkit.visual.color();
+          _randomData = '随机颜色: ${RandomToolkit.visual.hexColor()}';
           break;
         case 'material_color':
-          _randomColor = RandomToolkit.visual.randomMaterialColor();
+          _randomColor = RandomToolkit.visual.materialColor();
           _randomData = 'Material颜色: ${_randomColor.toString()}';
           break;
         case 'image_url':
-          _randomData =
-              RandomToolkit.visual.randomImageUrl(width: 600, height: 250);
+          _randomData = RandomToolkit.visual.imageUrl(width: 600, height: 250);
           break;
         case 'avatar':
-          _randomData = RandomToolkit.visual.randomAvatarUrl();
+          _randomData = RandomToolkit.visual.avatarUrl();
           break;
 
         // 地理位置 - 新API
         case 'address_cn':
           _randomData =
-              '中文地址: ${RandomToolkit.location.randomAddress(chinese: true)}';
+              '中文地址: ${RandomToolkit.location.address(chinese: true)}';
           break;
         case 'address_en':
           _randomData =
-              '英文地址: ${RandomToolkit.location.randomAddress(chinese: false)}';
+              '英文地址: ${RandomToolkit.location.address(chinese: false)}';
           break;
 
         // 日期时间 - 新API
         case 'date':
           _randomData =
-              '随机日期: ${RandomToolkit.dateTime.randomDate().toString().split(' ')[0]}';
+              '随机日期: ${RandomToolkit.dateTime.date().toString().split(' ')[0]}';
           break;
         case 'timestamp':
-          _randomData = '随机时间戳: ${RandomToolkit.dateTime.randomTimestamp()}';
+          _randomData = '随机时间戳: ${RandomToolkit.dateTime.timestamp()}';
           break;
 
         // 完整用户信息 - 新API
