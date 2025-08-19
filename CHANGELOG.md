@@ -175,6 +175,7 @@ Color color = RandomToolkit.visual.color();
 
 ## 链接
 
-- [GitHub 仓库](https://github.com/pei-duo/random_toolkit.git)
+- [Gitee 仓库](https://gitee.com/peiduo_734386/random_toolkit.git)
+- [GitHub 备份仓库](https://github.com/pei-duo/random_toolkit.git)
 - [pub.dev 包页面](https://pub.dev/packages/random_toolkit)
-- [问题反馈](https://github.com/pei-duo/random_toolkit/issues)
+- [问题反馈](https://gitee.com/peiduo_734386/random_toolkit/issues)

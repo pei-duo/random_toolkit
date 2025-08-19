@@ -168,7 +168,8 @@ flutter run
 
 ## 链接
 
-- [GitHub 仓库](https://github.com/pei-duo/random_toolkit.git)
+- [Gitee 仓库](https://gitee.com/peiduo_734386/random_toolkit.git)
+- [GitHub 备份仓库](https://github.com/pei-duo/random_toolkit.git)
 - [pub.dev 包页面](https://pub.dev/packages/random_toolkit)
 - [API 文档](https://pub.dev/documentation/random_toolkit/latest/)
 
