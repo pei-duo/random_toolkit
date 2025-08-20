@@ -12,7 +12,6 @@ class RandomToolkit {
   RandomToolkit._();
 
   // 命名空间访问其他功能
-
   /// 视觉元素生成器
   static RandomVisual visual = RandomVisual();
 
