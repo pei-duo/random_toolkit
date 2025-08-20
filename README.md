@@ -52,7 +52,7 @@
 
 ```yaml
 dependencies:
-  random_toolkit: ^0.0.1
+  random_toolkit: ^0.0.5
 ```
 
 并运行 `flutter pub get` 以获取依赖项。

@@ -5,7 +5,33 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
 并且本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
-## [0.0.4] - 2025-01-15
+## [0.0.5] - 2024-12-20
+
+### 新增
+
+- ✨ **项目品牌升级**
+  - 添加了专业的动画 SVG logo (`assets/random_toolkit_logo.svg`)
+  - logo 包含丰富的动画效果：旋转骰子、渐变色彩、浮动元素等
+  - 在 README.md 中集成了 logo 展示
+
+- 🔄 **双仓库同步配置**
+  - 配置了 Gitee（主仓库）和 GitHub（备份仓库）的双仓库同步
+  - 使用 Git 原生多推送 URL 功能，简化同步流程
+  - 添加了 `DUAL_REPO_SYNC.md` 文档说明同步机制
+  - 更新了所有文档中的仓库链接为 Gitee 地址
+
+### 改进
+
+- 📚 **文档优化**
+  - 更新 `pubspec.yaml`、`README.md`、`CHANGELOG.md` 中的仓库链接
+  - 统一使用 Gitee 作为主要代码托管平台
+  - 改进了项目的视觉呈现和品牌形象
+
+- 🛠️ **开发体验**
+  - 简化了代码同步流程，单个 `git push` 命令即可推送到两个仓库
+  - 提供了详细的开发者指南和使用说明
+
+## [0.0.4]
 
 ### 重大变更 (Breaking Changes)
 
@@ -58,7 +84,7 @@ String name = RandomToolkit.person.name();
 Color color = RandomToolkit.visual.color();
 ```
 
-## [0.0.3] - 2025-01-15
+## [0.0.3]
 
 ### 新增
 
@@ -81,7 +107,7 @@ Color color = RandomToolkit.visual.color();
   - 命名空间实例自动初始化
   - 支持混合使用新旧 API
 
-## [0.0.2] - 2024-12-19
+## [0.0.2]
 
 ### 修复
 
@@ -96,7 +122,7 @@ Color color = RandomToolkit.visual.color();
   - 完善了项目配置以符合 pub.dev 发布要求
   - 优化了 Android Gradle Plugin 兼容性
 
-## [0.0.1] - 2024-12-19
+## [0.0.1]
 
 ### 新增功能
 
