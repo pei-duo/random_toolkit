@@ -1,35 +1,48 @@
-# 双仓库同步说明
+# 双仓库同步配置文档
 
-本项目配置了双仓库同步，Gitee 作为主仓库，GitHub 作为备份仓库。
+本文档说明了如何配置和使用双仓库同步功能，实现代码同时推送到 Gitee（主仓库）和 GitHub（备份仓库）。
 
 ## 仓库配置
 
-- **主仓库 (Gitee)**: https://gitee.com/peiduo_734386/random_toolkit.git
-- **备份仓库 (GitHub)**: https://github.com/pei-duo/random_toolkit.git
+### 主仓库（Gitee）
+- **URL**: https://gitee.com/peiduo_734386/random_toolkit.git
+- **用途**: 主要开发仓库，用于发布和分发
+- **远程名称**: `origin`
+
+### 备份仓库（GitHub）
+- **URL**: https://github.com/pei-duo/random_toolkit.git
+- **用途**: 备份仓库，保持代码同步
+- **配置方式**: 作为 `origin` 的额外推送URL
 
 ## 远程仓库配置
 
+当前使用 Git 原生的多推送URL功能，配置如下：
+
 ```bash
-# 查看当前远程仓库配置
+# 查看远程仓库配置
 git remote -v
 
-# 输出:
-# origin          https://gitee.com/peiduo_734386/random_toolkit.git (fetch)
-# origin          https://gitee.com/peiduo_734386/random_toolkit.git (push)
-# github-backup   https://github.com/pei-duo/random_toolkit.git (fetch)
-# github-backup   https://github.com/pei-duo/random_toolkit.git (push)
+# 输出结果：
+origin  https://gitee.com/peiduo_734386/random_toolkit.git (fetch)
+origin  https://gitee.com/peiduo_734386/random_toolkit.git (push)
+origin  https://github.com/pei-duo/random_toolkit.git (push)
+```
+
+### 配置步骤
+
+如果需要重新配置，可以按以下步骤操作：
+
+```bash
+# 1. 设置主推送URL（Gitee）
+git remote set-url --push origin https://gitee.com/peiduo_734386/random_toolkit.git
+
+# 2. 添加备份推送URL（GitHub）
+git remote set-url --add --push origin https://github.com/pei-duo/random_toolkit.git
 ```
 
 ## 使用方法
 
-### 方法一：使用同步脚本（推荐）
-
-```bash
-# 提交并同步到两个仓库
-./sync_repos.sh "你的提交信息"
-```
-
-### 方法二：手动推送
+### 日常开发流程
 
 ```bash
 # 1. 添加更改
@@ -38,16 +51,11 @@ git add .
 # 2. 提交更改
 git commit -m "你的提交信息"
 
-# 3. 推送到主仓库 (Gitee)
+# 3. 推送到两个仓库（一条命令同时推送）
 git push origin main
-
-# 4. 推送到备份仓库 (GitHub)
-git push github-backup main
 ```
 
-### 方法三：自动钩子（已配置）
-
-项目已配置 `post-commit` 钩子，每次提交后会自动推送到两个仓库。
+由于配置了多推送URL，执行 `git push origin main` 会自动推送到两个仓库。
 
 ## 拉取代码
 
@@ -79,24 +87,28 @@ git clone https://gitee.com/peiduo_734386/random_toolkit.git
 
 ## 故障排除
 
-如果推送失败，可以手动推送到指定仓库：
+### 推送失败处理
 
-```bash
-# 仅推送到 Gitee
-git push origin main
+如果某个仓库推送失败，可以检查网络连接或仓库权限。由于使用了多推送URL配置，如果其中一个仓库推送失败，整个推送操作会失败。
 
-# 仅推送到 GitHub
-git push github-backup main
-```
+### 重新配置远程仓库
 
 如果需要重新配置远程仓库：
 
 ```bash
-# 删除现有远程仓库
-git remote remove origin
-git remote remove github-backup
+# 重置为单一推送URL
+git remote set-url --push origin https://gitee.com/peiduo_734386/random_toolkit.git
 
-# 重新添加
-git remote add origin https://gitee.com/peiduo_734386/random_toolkit.git
-git remote add github-backup https://github.com/pei-duo/random_toolkit.git
+# 重新添加多推送URL配置
+git remote set-url --add --push origin https://github.com/pei-duo/random_toolkit.git
+```
+
+### 验证配置
+
+```bash
+# 验证配置是否正确
+git remote -v
+
+# 测试推送
+git push origin main
 ```

@@ -1,0 +1,131 @@
+<svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 动画渐变定义 -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1">
+        <animate attributeName="stop-color" values="#2196F3;#9C27B0;#2196F3" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#4CAF50;stop-opacity:1">
+        <animate attributeName="stop-color" values="#4CAF50;#FF5722;#4CAF50" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#FF9800;stop-opacity:1">
+        <animate attributeName="stop-color" values="#FF9800;#3F51B5;#FF9800" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <linearGradient id="diceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1">
+        <animate attributeName="stop-color" values="#FF6B6B;#4ECDC4;#FF6B6B" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1">
+        <animate attributeName="stop-color" values="#4ECDC4;#FF6B6B;#4ECDC4" dur="3s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1976D2;stop-opacity:1">
+        <animate attributeName="stop-color" values="#1976D2;#388E3C;#1976D2" dur="5s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#388E3C;stop-opacity:1">
+        <animate attributeName="stop-color" values="#388E3C;#1976D2;#388E3C" dur="5s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="400" height="120" rx="12" ry="12" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1"/>
+  
+  <!-- 左侧图标区域 -->
+  <g transform="translate(20, 20)">
+    <!-- 主骰子 (带旋转动画) -->
+    <g transform-origin="25 25">
+      <animateTransform attributeName="transform" type="rotate" values="0 25 25;360 25 25" dur="8s" repeatCount="indefinite"/>
+      <rect x="10" y="10" width="30" height="30" rx="4" ry="4" fill="url(#diceGradient)" filter="url(#shadow)"/>
+      
+      <!-- 骰子点数 -->
+      <circle cx="18" cy="18" r="2" fill="white">
+        <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="25" cy="25" r="2" fill="white">
+        <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="32" cy="32" r="2" fill="white">
+        <animate attributeName="opacity" values="1;0.7;1" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="18" cy="32" r="2" fill="white">
+        <animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="32" cy="18" r="2" fill="white">
+        <animate attributeName="opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- 装饰性几何图形 (带脉动动画) -->
+    <polygon points="50,15 60,25 50,35 40,25" fill="url(#primaryGradient)" opacity="0.8">
+      <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="3s" repeatCount="indefinite" transform-origin="50 25"/>
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3s" repeatCount="indefinite"/>
+    </polygon>
+    
+    <!-- 数据流线条 (带流动动画) -->
+    <path d="M 5 50 Q 25 45 45 50 Q 65 55 85 50" stroke="url(#primaryGradient)" stroke-width="3" fill="none" opacity="0.7">
+      <animate attributeName="stroke-dasharray" values="0,100;50,50;100,0" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0.3;0.7" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 10 60 Q 30 55 50 60 Q 70 65 90 60" stroke="url(#primaryGradient)" stroke-width="2" fill="none" opacity="0.5">
+      <animate attributeName="stroke-dasharray" values="0,80;40,40;80,0" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.2;0.5" dur="3.5s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- 随机符号 (带浮动动画) -->
+    <text x="55" y="45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="url(#primaryGradient)">∞
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+    </text>
+    <text x="70" y="35" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="url(#primaryGradient)">?
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,2;0,0" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.7;1" dur="1.8s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  
+  <!-- 主标题 -->
+  <text x="130" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="url(#textGradient)">Random Toolkit</text>
+  
+  <!-- 副标题 -->
+  <text x="130" y="65" font-family="Arial, sans-serif" font-size="14" fill="#666666">Flutter 随机数据生成工具包</text>
+  
+  <!-- 功能标签 -->
+  <g transform="translate(130, 75)">
+    <rect x="0" y="0" width="45" height="18" rx="9" ry="9" fill="#E3F2FD" stroke="#2196F3" stroke-width="1"/>
+    <text x="22.5" y="12" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1976D2" text-anchor="middle">数据生成</text>
+    
+    <rect x="55" y="0" width="45" height="18" rx="9" ry="9" fill="#E8F5E8" stroke="#4CAF50" stroke-width="1"/>
+    <text x="77.5" y="12" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#388E3C" text-anchor="middle">多平台</text>
+    
+    <rect x="110" y="0" width="45" height="18" rx="9" ry="9" fill="#FFF3E0" stroke="#FF9800" stroke-width="1"/>
+    <text x="132.5" y="12" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#F57C00" text-anchor="middle">类型安全</text>
+  </g>
+  
+  <!-- 装饰性元素 (带浮动动画) -->
+  <circle cx="350" cy="30" r="8" fill="url(#primaryGradient)" opacity="0.3">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="8;10;8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="370" cy="45" r="6" fill="url(#primaryGradient)" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,4;0,0" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="6;8;6" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="360" cy="65" r="4" fill="url(#primaryGradient)" opacity="0.5">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4;6;4" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  
+
+</svg>
