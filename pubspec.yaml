@@ -1,6 +1,6 @@
 name: random_toolkit
 description: 一个功能强大的Flutter随机数据生成工具包，提供各种类型的随机数据生成功能。
-version: 0.0.5
+version: 0.0.6
 homepage: https://gitee.com/peiduo_734386/random_toolkit
 repository: https://gitee.com/peiduo_734386/random_toolkit.git
 issue_tracker: https://gitee.com/peiduo_734386/random_toolkit/issues
@@ -12,29 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
-  plugin_platform_interface: ^2.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
 
-flutter:
-  plugin:
-    platforms:
-      android:
-        package: com.pei.pedro.random_toolkit
-        pluginClass: RandomToolkitPlugin
-      ios:
-        pluginClass: RandomToolkitPlugin
-      linux:
-        pluginClass: RandomToolkitPlugin
-      macos:
-        pluginClass: RandomToolkitPlugin
-      windows:
-        pluginClass: RandomToolkitPluginCApi
-      web:
-        pluginClass: RandomToolkitWeb
-        fileName: random_toolkit_web.dart
+# 纯Dart包，无需插件配置

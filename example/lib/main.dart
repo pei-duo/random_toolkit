@@ -1,6 +1,4 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:random_toolkit/random_toolkit.dart';
 
 void main() {
@@ -15,8 +13,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
-  String _platformVersion = 'Unknown';
-
   // 随机数据展示
   String _randomData = '';
   Color _randomColor = Colors.blue;
@@ -28,29 +24,12 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _tabController = TabController(length: 6, vsync: this);
-    initPlatformState();
   }
 
   @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
-  }
-
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    try {
-      platformVersion = await RandomToolkit.getPlatformVersion() ??
-          'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
   }
 
   void _generateRandomData(String type) {
@@ -269,14 +248,14 @@ Balance: \$${user['balance']}''';
               ),
             ),
 
-            // 平台信息
+            // 纯Dart插件信息
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(8.0),
               color: Colors.grey[100],
-              child: Text(
-                '运行平台: $_platformVersion',
-                style: const TextStyle(fontSize: 12),
+              child: const Text(
+                '纯Dart随机数据生成工具包',
+                style: TextStyle(fontSize: 12),
                 textAlign: TextAlign.center,
               ),
             ),

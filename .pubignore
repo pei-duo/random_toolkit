@@ -1,0 +1,7 @@
+# Exclude example app from published package
+example/
+
+# Exclude development files
+.vscode/
+.fvmrc
+DUAL_REPO_SYNC.md

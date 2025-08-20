@@ -4,12 +4,20 @@
   <img src="assets/random_toolkit_logo.svg" alt="Random Toolkit Logo" width="800">
 </div>
 
-一个功能强大的 Flutter 随机数据生成工具包，提供各种类型的随机数据生成功能。
+一个功能强大的纯 Dart 随机数据生成工具包，提供各种类型的随机数据生成功能。支持 Flutter、Dart 以及所有 Dart 平台。
 
 [![pub package](https://img.shields.io/pub/v/random_toolkit.svg)](https://pub.dev/packages/random_toolkit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 功能特性
+
+### ✨ 纯 Dart 包优势
+
+- 🚀 **跨平台兼容**：支持所有 Dart 平台（Flutter、Web、Server、Desktop）
+- 📦 **轻量级**：无原生依赖，包体积小
+- 🔧 **易集成**：简单的依赖管理，无需平台配置
+- 🛠️ **高性能**：纯 Dart 实现，运行效率高
+- 🔄 **易维护**：统一的代码库，简化维护成本
 
 ### 🎲 基础随机数据
 
@@ -52,7 +60,7 @@
 
 ```yaml
 dependencies:
-  random_toolkit: ^0.0.5
+  random_toolkit: ^0.0.6
 ```
 
 并运行 `flutter pub get` 以获取依赖项。

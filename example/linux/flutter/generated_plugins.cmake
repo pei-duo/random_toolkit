@@ -3,7 +3,6 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  random_toolkit
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

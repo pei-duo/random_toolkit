@@ -5,6 +5,29 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
 并且本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.0.6]
+
+### 重大变更 (Breaking Changes)
+
+- 🔄 **纯 Dart 包转换**
+  - 移除了所有原生平台代码（Android、iOS、Windows、Linux、macOS）
+  - 删除了平台相关的 Dart 文件（platform_interface、method_channel、web）
+  - 移除了 `getPlatformVersion()` 功能
+  - 更新 `pubspec.yaml`，移除插件配置和平台依赖
+  - 转换为纯 Dart 包，提高兼容性和可维护性
+
+### 改进
+
+- 📦 **包结构优化**
+  - 简化了项目结构，移除了不必要的平台代码
+  - 更新了示例应用，移除平台版本显示功能
+  - 优化了测试文件，专注于纯 Dart 功能测试
+
+- 🚀 **性能提升**
+  - 减少了包大小和依赖复杂度
+  - 提高了跨平台兼容性
+  - 简化了集成和使用流程
+
 ## [0.0.5]
 
 ### 新增

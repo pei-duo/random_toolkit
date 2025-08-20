@@ -1,8 +1,6 @@
 library random_toolkit;
 
 // 导出所有模块
-import 'package:random_toolkit/random_toolkit_platform_interface.dart';
-
 import 'src/random_generators.dart';
 import 'src/random_person.dart';
 import 'src/random_visual.dart';
@@ -13,10 +11,6 @@ import 'src/random_user.dart';
 class RandomToolkit {
   RandomToolkit._();
 
-  // 保留原有的平台版本获取功能
-  static Future<String?> getPlatformVersion() async {
-    return RandomToolkitPlatform.instance.getPlatformVersion();
-  }
   // 命名空间访问其他功能
 
   /// 视觉元素生成器
