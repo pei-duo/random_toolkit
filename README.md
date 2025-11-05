@@ -209,3 +209,6 @@ flutter run
 ## 更新日志
 
 查看 [CHANGELOG.md](CHANGELOG.md) 了解版本更新历史。
+
+添加备份仓库: https://github.com/pei-duo/random_toolkit.git
+添加备份仓库: https://gitcode.com/pedro-labs/random_toolkit.git
